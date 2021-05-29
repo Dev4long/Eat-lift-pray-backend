@@ -7,7 +7,23 @@ Session.destroy_all
 
 Client.create([
     {name: "Denis", age: 23},
-    {name: "Michael", age: 30}
+    {name: "Michael", age: 30},
+    {name: "Barak", age: 27},
+    {name: "Bin", age: 25},
+    {name: "Eric", age: 31},
+    {name: "David", age: 32},
+    {name: "Isaac", age: 25},
+    {name: "Itche", age: 26},
+    {name: "Jenna", age: 25},
+    {name: "Katie", age: 24},
+    {name: "Kent", age: 23},
+    {name: "Leo", age: 22},
+    {name: "Mark", age: 30},
+    {name: "Michelle", age: 28},
+    {name: "Nicholas", age: 29},
+    {name: "Ryan", age: 25},
+    {name: "Sean", age: 30},
+    {name: "Yosef", age: 28}
 ])
 
 Trainer.create([
@@ -27,9 +43,11 @@ Trainer.create([
 ])
 
 Session.create([
-    {workout_description: "weight training",date: 5282021,price: 100,client_id: Client.first.id, trainer_id: Trainer.first.id},
-    {workout_description: "cardio",date: 5292021,price: 75,client_id: Client.second.id, trainer_id: Trainer.second.id},
-    {workout_description: "strength training",date: 5302021,price: 150,client_id: Client.first.id, trainer_id: Trainer.fifth.id}
+    {workout_description: "weight training", date: 5282021, price: 100, client_id: Client.first.id, trainer_id: Trainer.first.id},
+    {workout_description: "cardio", date: 5292021, price: 75, client_id: Client.second.id, trainer_id: Trainer.second.id},
+    {workout_description: "strength training", date: 5302021, price: 150, client_id: Client.third.id, trainer_id: Trainer.fifth.id},
+    {workout_description: "calisthenic training", date: 5302021, price: 125, client_id: Client.fourth.id, trainer_id: Trainer.last.id},
+    {workout_description: "calisthenic training", date: 5302021, price: 125, client_id: Client.fifth.id, trainer_id: Trainer.last.id},
 ])
 
 puts "Created clients "

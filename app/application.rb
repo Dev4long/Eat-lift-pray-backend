@@ -1,21 +1,36 @@
 class Application
+  
   def call(env)
+    resp = Rack::Response.new
     req = Rack::Request.new(env)
+    
+    
+    if req.path.match(/test/)
+      return [200, { 'Content-Type' => 'application/json' }, [ {:message => "test response!"}.to_json]]
 
-    if req.path.match(/hello/)
-      send_hello
+    elsif req.path.match(/trainers/) && req.get?
+
+      trainers_json = Trainer.all.to_json(:include => { :sessions => {
+        :include => { :client => {
+                      :only => [:name, :age] } }
+      }
+     })
+
+      return [200, { 'Content-Type' => 'application/json' }, [trainers_json]]
+
     else
-      send_not_found
+      [404, {}, ["path not found!!!"]]
     end
   end
-
-  private
-
-  def send_hello
-    return [200, { "Content-Type" => "application/json" }, [{ :message => "hello world!" }.to_json]]
-  end
-
-  def send_not_found
-    return [404, {}, ["Path not found!!!"]]
-  end
 end
+
+#   private
+
+#   def send_hello
+#     return [200, { "Content-Type" => "application/json" }, [{ :message => "hello world!" }.to_json]]
+#   end
+
+#   def send_not_found
+#     return [404, {}, ["Path not found!!!"]]
+#   end
+# end
