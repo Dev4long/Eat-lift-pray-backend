@@ -10,3 +10,4 @@ gem "require_all"
 gem "activerecord"
 gem "sinatra-activerecord"
 gem "sqlite3"
+gem 'activerecord-reset-pk-sequence'

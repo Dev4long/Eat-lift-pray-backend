@@ -6,6 +6,7 @@ GEM
     activerecord (6.1.3.2)
       activemodel (= 6.1.3.2)
       activesupport (= 6.1.3.2)
+    activerecord-reset-pk-sequence (0.2.1)
     activesupport (6.1.3.2)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
@@ -67,6 +68,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
+  activerecord-reset-pk-sequence
   pry
   rack
   rack-cors
@@ -78,4 +80,4 @@ DEPENDENCIES
   sqlite3
 
 BUNDLED WITH
-   2.1.4
+   2.2.13

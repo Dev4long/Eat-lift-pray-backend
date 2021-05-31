@@ -2,7 +2,9 @@ Client.destroy_all
 Trainer.destroy_all
 Session.destroy_all
 
-
+Client.reset_pk_sequence
+Trainer.reset_pk_sequence
+Session.reset_pk_sequence
 
 
 Client.create([
@@ -48,6 +50,19 @@ Session.create([
     {workout_description: "strength training", date: 5302021, price: 150, client_id: Client.third.id, trainer_id: Trainer.fifth.id},
     {workout_description: "calisthenic training", date: 5302021, price: 125, client_id: Client.fourth.id, trainer_id: Trainer.last.id},
     {workout_description: "calisthenic training", date: 5302021, price: 125, client_id: Client.fifth.id, trainer_id: Trainer.last.id},
+    {workout_description: "strength training", date: 5302021, price: 150, client_id: Client.find(6).id, trainer_id: Trainer.third.id},
+    {workout_description: "weight training", date: 5282021, price: 100, client_id: Client.find(7).id, trainer_id: Trainer.fourth.id},
+    {workout_description: "cardio", date: 5292021, price: 75, client_id: Client.find(8).id, trainer_id: Trainer.fourth.id},
+    {workout_description: "weight training", date: 5282021, price: 100, client_id: Client.find(9).id, trainer_id: Trainer.fifth.id},
+    {workout_description: "weight training", date: 5282021, price: 100, client_id: Client.find(10).id, trainer_id: Trainer.second.id},
+    {workout_description: "strength training", date: 5302021, price: 150, client_id: Client.find(11).id, trainer_id: Trainer.find(6).id},
+    {workout_description: "calisthenic training", date: 5302021, price: 125, client_id: Client.find(12).id, trainer_id: Trainer.find(7).id},
+    {workout_description: "calisthenic training", date: 5302021, price: 125, client_id: Client.find(13).id, trainer_id: Trainer.find(8).id},
+    {workout_description: "weight training", date: 5282021, price: 100, client_id: Client.find(14).id, trainer_id: Trainer.find(9).id},
+    {workout_description: "weight training", date: 5282021, price: 100, client_id: Client.find(15).id, trainer_id: Trainer.find(10).id},
+    {workout_description: "strength training", date: 5302021, price: 150, client_id: Client.find(16).id, trainer_id: Trainer.find(11).id},
+    {workout_description: "calisthenic training", date: 5302021, price: 125, client_id: Client.find(17).id, trainer_id: Trainer.find(12).id},
+    {workout_description: "cardio", date: 5292021, price: 75, client_id: Client.find(18).id, trainer_id: Trainer.find(11).id},
 ])
 
 puts "Created clients "
