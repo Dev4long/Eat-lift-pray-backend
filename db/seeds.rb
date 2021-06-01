@@ -66,3 +66,4 @@ Session.create([
 ])
 
 puts "Created clients "
+puts "hello world"
