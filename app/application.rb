@@ -17,6 +17,13 @@ class Application
      })
 
       return [200, { 'Content-Type' => 'application/json' }, [trainers_json]]
+      
+
+    elsif req.path.match(/trainers/) && req.post?
+      session_hash = JSON.parse(req.body.read)
+      new_session = Session.create(session_hash)
+
+      return [201, { 'Content-Type' => 'application/json' }, [ new_session.display_data ]]
 
     else
       [404, {}, ["path not found!!!"]]
