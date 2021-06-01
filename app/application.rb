@@ -9,7 +9,6 @@ class Application
       return [200, { 'Content-Type' => 'application/json' }, [ {:message => "test response!"}.to_json]]
 
     elsif req.path.match(/trainers/) && req.get?
-
       trainers_json = Trainer.all.to_json(:include => { :sessions => {
         :include => { :client => {
                       :only => [:name, :age] } }
@@ -22,8 +21,9 @@ class Application
     elsif req.path.match(/trainers/) && req.post?
       session_hash = JSON.parse(req.body.read)
       new_session = Session.create(session_hash)
-
-      return [201, { 'Content-Type' => 'application/json' }, [ new_session.display_data ]]
+    
+      return [201, { 'Content-Type' => 'application/json' }, [new_session.to_json()]]
+      # .display_data
 
     else
       [404, {}, ["path not found!!!"]]

@@ -19,7 +19,8 @@ ActiveRecord::Schema.define(version: 2021_05_28_182906) do
 
   create_table "sessions", force: :cascade do |t|
     t.string "workout_description"
-    t.integer "date"
+    t.string "date"
+    t.string "time"
     t.integer "price"
     t.integer "client_id"
     t.integer "trainer_id"
