@@ -11,13 +11,13 @@ def announce_rating
     "My overall rating #{rating}"
 end
 
-def display_data
-    self.to_json({:include => { :sessions => {
-                     :include => { :client => {
-                      :only => [:name, :age] } }
-                  }, 
-                },
-                :methods => [:announce_name, :announce_likes]
-    }) 
- end
+# def display_data
+#     self.to_json({:include => { :sessions => {
+#                      :include => { :client => {
+#                       :only => [:name, :age] } }
+#                   }, 
+#                 },
+#                 :methods => [:announce_name, :announce_likes]
+#     }) 
+#  end
 end
