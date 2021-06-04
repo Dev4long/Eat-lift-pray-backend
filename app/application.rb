@@ -61,9 +61,13 @@ class Application
       login_client = Client.find_by(name: login_hash["name"])
      if login_client
      
-      return [201, { 'Content-Type' => 'application/json' }, [login_client.to_json()]]
+      return [201, { 'Content-Type' => 'application/json' }, [login_client.to_json(:include => { :sessions => {
+        :include => { :trainer => {
+                      :only => [:name, :image, :rating] } }
+      }
+     })]]
      else 
-      [201, { 'Content-Type' => 'application/json' }, [{:error => "test response!"}.to_json()]]
+      [201, { 'Content-Type' => 'application/json' }, [{:error => "Client doesn't exist. You need to lift more."}.to_json()]]
      end
     elsif req.path.match(/clients/) && req.delete?
       id = req.path.split("/").last
