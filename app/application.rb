@@ -67,7 +67,7 @@ class Application
       }
      })]]
      else 
-      [201, { 'Content-Type' => 'application/json' }, [{:error => "Client doesn't exist. You need to lift more."}.to_json()]]
+      return [404, { 'Content-Type' => 'application/json' }, [{:error => "Client doesn't exist. You need to lift more."}.to_json()]]
      end
     elsif req.path.match(/clients/) && req.delete?
       id = req.path.split("/").last
